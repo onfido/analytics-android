@@ -1435,6 +1435,9 @@ public class Analytics {
   }
 
   void performInitializeIntegrations(ProjectSettings projectSettings) {
+    if (isNullOrEmpty(projectSettings)) {
+      return;
+    }
     ValueMap integrationSettings = projectSettings.integrations();
     integrations = new LinkedHashMap<>(factories.size());
     for (int i = 0; i < factories.size(); i++) {
